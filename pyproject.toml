@@ -1,0 +1,20 @@
+[project]
+name = "robotframework-result-analyzer"
+dynamic = ["version"]
+description = "A project to analyze RF results"
+authors = [
+    { name="Joonas Jauhinen", email="joonas.jauhianen@gmail.com" }
+]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+python_requires = ">=3.8"
+
+[tool.pdm.scm]
+source = "scm"
+
+[tool.pdm.source]
+include = ["src.robotframefork-result.aanlyzer.__init__.py"]
