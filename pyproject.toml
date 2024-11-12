@@ -1,10 +1,11 @@
 [project]
-name = "robotframework-result-analyzer"
+name = "RobotFrameworkResultAnalyzer"
 dynamic = ["version"]
-description = "A project to analyze RF results"
+description = "Robot Framework listener to generate understandable output of test results"
 authors = [
     { name="Joonas Jauhinen", email="joonas.jauhianen@gmail.com" }
 ]
+license = { file = "LICENSE" }
 
 [build-system]
 requires = ["pdm-backend"]
