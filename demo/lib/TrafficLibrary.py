@@ -7,7 +7,7 @@ class TrafficLibrary():
         self.level = level
     
     def _random_exception(self, error_messages):
-        if random.random() < 0.3:
+        if random.random() < 0.1:
             if self.level == "plain":
                 raise Exception("Timeout")
             else:

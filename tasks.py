@@ -7,7 +7,7 @@ TYPES = {
     "bdd": Path("robot/bdd.robot"),
 }
 
-LISTENER = "src.robotframework_result_analyzer"
+LISTENER = "src.RobotFrameworkResultAnalyzer"
 
 
 @task
