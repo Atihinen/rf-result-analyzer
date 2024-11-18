@@ -1,5 +1,5 @@
 *** Settings ***
-Library    TrafficLibrary
+Resource    library.resource
 
 *** Variables ***
 ${USB_SERIAL_PORT}    /dev/ttyUSB0

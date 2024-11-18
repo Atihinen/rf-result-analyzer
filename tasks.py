@@ -11,7 +11,7 @@ LISTENER = "src.RobotFrameworkResultAnalyzer"
 
 
 @task
-def demo(c, type="raw", dry_run=False):
+def demo(c, type="raw", level="plain", dry_run=False):
     try:
         test_file = TYPES[type]
     except KeyError:
@@ -19,4 +19,4 @@ def demo(c, type="raw", dry_run=False):
     dryrun_option = ""
     if dry_run:
         dryrun_option = "--dryrun"
-    c.run(f"cd demo && robot {dryrun_option} --listener {LISTENER} -d ../results --pythonpath=lib --pythonpath=../ {test_file}")
+    c.run(f"cd demo && robot {dryrun_option} --variable LEVEL:{level} --listener {LISTENER} -d ../results --pythonpath=lib --pythonpath=../ {test_file}")

@@ -10,7 +10,7 @@ PASSING_TEMPLATE = """The test named "{test_name}" passed successfully. It start
 
 FAILING_TEMPLATE = """The test named "{test_name}" failed. It started at {start_time} and ended at {end_time}, taking a total of {elapsed_time}. The steps executed were as follows:
 {steps}
-The error encountered was: {error_message}
+The error encountered in test "{test_name}" was: {error_message}
 """
 
 SKIPPED_TEMPLATE = """The test named "{test_name}" was skipped. It was scheduled to start at {start_time}. The reason for skipping is: {skip_reason}"""

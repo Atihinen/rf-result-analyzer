@@ -1,5 +1,5 @@
 *** Settings ***
-Library    TrafficLibrary
+Resource    library.resource
 Test Setup    Power On System
 
 *** Variables ***
