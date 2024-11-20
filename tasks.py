@@ -20,3 +20,7 @@ def demo(c, type="raw", level="plain", dry_run=False):
     if dry_run:
         dryrun_option = "--dryrun"
     c.run(f"cd demo && robot {dryrun_option} --variable LEVEL:{level} --listener {LISTENER} -d ../results --pythonpath=lib --pythonpath=../ {test_file}")
+
+@task
+def lint(c):
+    c.run("pylint src")
