@@ -29,7 +29,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
-        run: pip install -r dev-requirements.txt
+        run: pdm install
 
       - name: lint
         run: invoke lint
+      
+      - name: build
+        run: invoke build

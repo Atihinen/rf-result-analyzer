@@ -24,3 +24,10 @@ def demo(c, type="raw", level="plain", dry_run=False):
 @task
 def lint(c):
     c.run("pylint src")
+
+@task
+def build(c):
+    c.run("pdm import -f requirements requirements.txt")
+    c.run("pdm install")
+    c.run("pdm build")
+
