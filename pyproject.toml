@@ -1,21 +1,20 @@
 [project]
 name = "RobotFrameworkResultAnalyzer"
-dynamic = ["version"]
+version = "0.1.0"
 description = "Robot Framework listener to generate understandable output of test results"
 authors = [
-    { name="Joonas Jauhinen", email="joonas.jauhianen@gmail.com" }
+    {name = "Joonas Jauhiainen", email = "joonas.jauhiainen@gmail.com"},
 ]
-license = { file = "LICENSE" }
+dependencies = [
+    "robotframework==7.1.1",
+]
+requires-python = ">=3.9"
+readme = "README.md"
+license = {text = "The GNU General Public License v3.0"}
 
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [tool.pdm]
-python_requires = ">=3.8"
-
-[tool.pdm.scm]
-source = "scm"
-
-[tool.pdm.source]
-include = ["src.robotframefork-result.aanlyzer.__init__.py"]
+distribution = true
