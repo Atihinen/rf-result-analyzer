@@ -1,5 +1,6 @@
 from pathlib import Path
 from invoke import task
+from genai.analyzer_bot import analyze_test_results
 
 TYPES = {
     "raw": Path("robot/raw.robot"),
@@ -19,7 +20,9 @@ def demo(c, type="raw", level="plain", dry_run=False):
     dryrun_option = ""
     if dry_run:
         dryrun_option = "--dryrun"
-    c.run(f"cd demo && robot {dryrun_option} --variable LEVEL:{level} --listener {LISTENER} -d ../results --pythonpath=lib --pythonpath=../ {test_file}")
+    c.run(f"cd demo && robot --nostatusrc {dryrun_option} --variable LEVEL:{level} --listener {LISTENER} -d ../results --pythonpath=lib --pythonpath=../ {test_file}")
+    analysis = analyze_test_results("demo/test_summary.txt")
+    print(analysis)
 
 @task
 def lint(c):
