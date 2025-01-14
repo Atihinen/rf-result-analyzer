@@ -12,7 +12,7 @@ LISTENER = "src.RobotFrameworkResultAnalyzer"
 
 
 @task
-def demo(c, type="raw", level="plain", dry_run=False):
+def demo(c, type="raw", level="plain", dry_run=False, analyze=False, xml=False):
     try:
         test_file = TYPES[type]
     except KeyError:
@@ -21,8 +21,16 @@ def demo(c, type="raw", level="plain", dry_run=False):
     if dry_run:
         dryrun_option = "--dryrun"
     c.run(f"cd demo && robot --nostatusrc {dryrun_option} --variable LEVEL:{level} --listener {LISTENER} -d ../results --pythonpath=lib --pythonpath=../ {test_file}")
-    analysis = analyze_test_results("demo/test_summary.txt")
-    print(analysis)
+    if analyze:
+        print("Analyzing test results...\n")
+        analysis = analyze_test_results("demo/test_summary.txt")
+        print(analysis)
+    if xml:
+        print("Analyzing ooutput.xml...\n")
+        analysis = analyze_test_results("results/output.xml")
+        print(analysis)
+
+
 
 @task
 def lint(c):

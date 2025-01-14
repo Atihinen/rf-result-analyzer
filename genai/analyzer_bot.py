@@ -2,9 +2,13 @@ import sys
 from ollama import Client
 
 prompt = (
-        "Your role is to be expert robotframework assistant and help out to analyze test results based on given file. "
-        "Please answer to following questions: How many test cases there were and what was the failure reason if the test case was failing."
-)
+        "Your role is to be an expert Robot Framework assistant and help analyze test results based on the given file. "
+        "Please answer the following questions: "
+        "1. How many test cases were there? "
+        "2. What was the failure reason for each test case that failed?"
+        "3. How to fix the test case if it failed?"
+    )
+
 
 def get_client():
     client = Client(
@@ -25,7 +29,7 @@ def analyze_test_results(file_path):
         {'role': 'system', 'content': prompt},
         {'role': 'user', 'content': content}
     ]
-    response = client.chat(model='nemotron-mini:latest', messages=messages)
+    response = client.chat(model='nemotron-mini:latest', messages=messages) # nemotron-mini seems to be a model that even potato can run
     return response.message.content
 
 if __name__ == "__main__":
