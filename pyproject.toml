@@ -1,0 +1,20 @@
+[project]
+name = "RobotFrameworkResultAnalyzer"
+version = "0.1.0"
+description = "Robot Framework listener to generate understandable output of test results"
+authors = [
+    {name = "Joonas Jauhiainen", email = "joonas.jauhiainen@gmail.com"},
+]
+dependencies = [
+    "robotframework==7.1.1",
+]
+requires-python = ">=3.9"
+readme = "README.md"
+license = {text = "The GNU General Public License v3.0"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = true
